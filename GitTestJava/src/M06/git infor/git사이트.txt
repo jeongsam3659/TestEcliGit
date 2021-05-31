@@ -1,0 +1,26 @@
+Git Test
+
+깃에대한 정보
+**
+https://nevertrustbrutus.tistory.com/m/153
+**
+https://dev-youngjun.tistory.com/44?category=867656
+
+
+
+
+**
+Reinitialized existing Git repository in C:/GitLog/Study2021/.git/
+C:/GitLog/Study2021/.git/에서 기존 Git 저장소를 다시 초기화합니다.
+
+modified
+수정된
+
+
+git 입문 사이트
+https://backlog.com/git-tutorial/kr/
+
+
+
+git branch생성 후
+https://velog.io/@clubmed2/Git-branch%EC%83%9D%EC%84%B1-%ED%9B%84-push%ED%95%98%EA%B8%B0
