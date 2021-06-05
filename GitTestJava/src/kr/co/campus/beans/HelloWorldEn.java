@@ -1,6 +1,6 @@
 package kr.co.campus.beans;
 
-public class HellowWorldEn {
+public class HelloWorldEn {
 
 	public void sayHello() {
 		System.out.println("æ»≥Á«œººø‰.");

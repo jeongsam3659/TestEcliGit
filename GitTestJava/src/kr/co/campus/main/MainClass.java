@@ -1,25 +1,25 @@
 package kr.co.campus.main;
 
-import kr.co.campus.beans.HellowWorldEn;
-import kr.co.campus.beans.HellowWorldKo;
+import kr.co.campus.beans.HelloWorldEn;
+import kr.co.campus.beans.HelloWorldKo;
 
 public class MainClass {
 
 	public static void main(String[] args) {
 		
-		HellowWorldEn HWE1 = new HellowWorldEn(); //1)
+		HelloWorldEn HWE1 = new HelloWorldEn(); //1)
 		callMethod(HWE1); //3)
 		
 		// 또다른 객체를 사용시.
-		HellowWorldEn HWE2 = new HellowWorldEn();
-	//	HellowWorldKo HWE2 = new HellowWorldKo();
+		HelloWorldEn HWE2 = new HelloWorldEn();
+	//	HelloWorldKo HWE2 = new HellowWorldKo();
 		callMethod(HWE2);
 		
 	}
 	
 	//이 객체의 주소값을 받아서 활용하는 메소드
-//	public static void callMethod(HellowWorldKo HWE) {
-	public static void callMethod(HellowWorldEn HWE) {
+//	public static void callMethod(HelloWorldKo HWE) {
+	public static void callMethod(HelloWorldEn HWE) {
 		HWE.sayHello();
 	} //2)
 

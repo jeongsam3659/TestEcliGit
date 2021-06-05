@@ -1,0 +1,16 @@
+다형성 
+ 
+ - 자바에서의 모든객체는 부모클래스형 참조 변수나 구현한 인터페이스 변수에 담을 수 있다.
+ ex)
+  - interface HelloWorld 
+   sayHello();
+   
+  - class HelloWorldEn implments HellowWorld
+  sayHello();
+  
+  클래스 En이 인터페이스HW을 구현시. 추상메소드를 오버라이딩해야된다. 
+   > 객체의 주소값을 담는 참조변수 타입은 En 클래스타입해야되지만.
+   > 자바는 상속받은 부모클래스나 인터페이스 담을 수 있습니다.
+   
+   HelloWorld 형 참조변수 > interface HelloWorld > class HelloWorldEn implement HellowWorld
+   							sayHello();			오버라이딩	sayHello();
