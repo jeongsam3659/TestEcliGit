@@ -1,0 +1,181 @@
+다형성 
+ 
+ - 자바에서의 모든객체는 부모클래스형 참조 변수나 구현한 인터페이스 변수에 담을 수 있다.
+ ex)
+  - interface HelloWorld 
+   sayHello();
+   
+  - class HelloWorldEn implments HellowWorld
+  sayHello();
+  
+  클래스 En이 인터페이스HW을 구현시. 추상메소드를 오버라이딩해야된다. 
+   > 객체의 주소값을 담는 참조변수 타입은 En 클래스타입해야되지만.
+   > 자바는 상속받은 부모클래스나 인터페이스 담을 수 있습니다.
+   
+   HelloWorld 형 참조변수 > interface HelloWorld > class HelloWorldEn implement HellowWorld
+   							sayHello();			오버라이딩	sayHello();
+   							
+   							
+   							
+   							
+   							
+
+   							
+*스프링 프레임워크 
+ - 초기셋팅이 다소 복잡할 수 있으므로 연습이 많이 필요함.
+ - xml 이용하는방법(구) 과 자바 어노테이션을 이용한 방법 두가지로 구분.
+ 
+ 
+*Maven
+  - 자바 프로젝트의 빌드를 자동으로 해주는 도구
+  - xml에 작성한 프로젝트 정보를 토대로 컴파일하고 라이브러리를 연결하는 등의 작업을 해주는 도구 
+  - Maven서버를 통해 라이브러리를 다운받아 설정하는 작업도 수행한다.
+  - 초기는 1.5로 되어있으므로 1.8버젼이상으로 수정.
+  - 자바프로젝트 - 프로퍼티 - 프로젝트 fect - java 1.8
+  
+  
+  - Maven - spring context
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.3.7</version>
+</dependency>
+
+
+ - 4.325버젼을 사용하는 곳도 있다. 5.버젼과 차이점이 있으니 주의고려.
+ 
+	<properties>
+		<!-- 자바 버젼. -->
+		<java-version>1.8</java-version>
+		<!-- 스프링 버젼. -->
+		<org.springframework-version>5.3.7</org.springframework-version>
+		<!-- 구버젼. -->
+		<!-- <org.springframework-version>5.2.15.RELEASE</org.springframework-version> -->
+	</properties>
+	
+	작성한뒤 버젼을 바꾸고 싶을 때마다 해당 태그를 불러오면된다.
+	<version>${org.springframework-version}</version>
+
+*로그 
+  slf4j 와 logBack 적용.
+
+<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-api</artifactId>
+	<version>${org.slf4j-version}</version>
+</dependency>
+		
+<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+    
+    <!--logback을 slf4j에서 사용할려면 scope를 지우고 exclusions넣으면된다 -->
+    <exclusions>
+		<exclusion>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</exclusion>
+	</exclusions>
+	<!--실행중에 로그를 볼수있다. -->
+	<scope>runtime</scope>
+</dependency>
+
+
+*****
+1)
+- xml설정
+ config 패키지를 만든뒤 beans.xml 생성.
+ 
+ <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+</beans>	
+
+그리고 Main클래스에서 해당 파일로딩.
+
+//beans.xml 파일을 로딩한다.
+ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("패키지_경로");
+ctx.close();
+  
+ 2) 인터페이스 생성 및 그걸 상속하는 클래스 생성. 
+ - Helloworld 와 en
+ 
+ -xml 파일에서 해당 클래스를 사용하고자 id와 경로 설정.
+ 	ex)
+ 	 <bean id='hello' class='kr.co.campus.beans.HelloWorldEn'>
+ 
+ 3) xml에 정의한 bean 객체의 주소값을 가져온다.
+ 	방법 1.	Helloworld hello1 = (Helloworld)ctx.getBean("hello");
+ 	방법 2.	Helloworld hello2 = ctx.getBean("hello",Helloworld.class);
+ 	
+ 	>> 'hello' id를 부여하고 해당 아이디값을 가진 클래스를  찾아간다.
+ 	
+ 	
+ 	
+
+
+****3 -7강
+
+
+IOC 컨테이너 : 제어 역전
+inversion of control
+ 일반적으로 프로그래밍을 작성할때 프로그램이 흘러가는 흐름이나 생성되는 객체에 대한 제어권을 개발자가
+ 만드는 개발자가 가지는 것과 달리 프레임워크가 가지는 것을 의미
+ 
+ 개발자가 코드의 흐름이나 객체 생성에 관련된 코드를 프로그래밍 코드에 직접 작성하는 것이 아닌 프레임워크가 사용하는 파일에 작성하면 
+ 이를 토대로 프레임워크가 객체를 생성하여 반환하고 코드가 동작하는 순서를 결정하게 된다는 의미.
+ >> 개발자는 중요한 정보를 세팅하면 프레임워크가 처리해주는 방식
+ >> 반복되는 코드를 일일이 만들어주기 보단 프레임워크로 처리
+ 
+ 
+POJO class :
+ plain Old java object
+ 자바 모델이나, 기능, 프레임워크 등에 따르지 않고 홀로 독립적이며 '단순한 기능'만을 가진 객체들을 의미.
+ 자바에서는 이러한 객체들을 Bean이라고 부른다.
+ 
+ POPO( PHP ), POCO( 닷넷 프레임워크 ), PODS( C++ ), POD( Perl )등
+ 
+ Metadata( 코드로 작성한 정보 )를 읽고 그정보를 토대로 POJO클래스를 통해 객체를 만들어서 사용하게끔 반환
+ ex) HelloWorldEn 으로 Ko 객체로 사용.
+ 
+ 
+ IOC 컨테이너 종류
+ 1) BeanFactory
+ 2) ApplicaionContext
+ 
+ 
+BeanFactory
+ 클래스를 통해 객체를 생성하고 이를 전달한다.
+ 상속 등 객체간의 관계를 형성하고 관리.
+ Bean에 관련된 설정을 위한 xml파일은 즉시 로딩하지만 객체는 개발자가 요구할 때 생성.
+ ex) xmlBeanFactory
+ 
+ >> 클래스를 통해 객체를 만들고 그 주소값을 반환.
+ 
+ 
+ApplicationContext
+ 클래스를 통해 객체를 생성하고 이를 전달.
+ 상속 등 객체간의 관계를 형성하고 관리
+ 국제화 지원등 문자열에 관련된 다양한 기능을 제공.
+ - 리스너로 등록되어 있는 Bean에 이벤트를 발생시킬 수 있다.
+ - Bean에 관련된 설정을 위한 xml 파일은 즉시 로딩하면서 객체를 미리 생성해서 가짐.
+ ex) ClassPathXmlApplicationContext , FileSystemXmlApplicationContext , XmlWebApplicationContext
+ 
+ 
+ <정리>
+ 스프링 프레임워크는 IoC 컨테이너를 이요해 Bean객체들을 관리한다.
+--- 
+ 패키지 내/외부 bean.xml 비교
+// .getBean("id값" , 클래스명.class)
+// System.out.printf("t1 : %s\n", t1); >> 로그
+// ApplicationContext는 따로 설정해주지 않으면, beans.xml에 정의된 객체들이 자동으로 생성. 
+ 
+ 
+ 
+ 
+  
