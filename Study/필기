@@ -119,7 +119,7 @@ ctx.close();
  	
 
 
-****3 -7강
+****3 -7강 ----------------------------------------------------
 
 
 IOC 컨테이너 : 제어 역전
@@ -178,4 +178,78 @@ ApplicationContext
  
  
  
+****3 -8강 ----------------------------------------------------
+IoC를 통해 Bean 객체 생성. 
+ Spring에서는 사용할 Bean객체를 Bean Configuration file에 정의를 하고 필요할때 객체를 가져와 사용하는 방법을 이용.
+ Bean 태그 : 사용할 Bean을 정의하는 태그. 
+ 
+ 기본속성
+  > Class :
+  		객체를 생성하기 위해 사용할 클래스를 지정.
+  > id :
+   		Bean 객체를 가져오기 위해 사용하는 이름을 지정.
+  > lazy-init :
+  		싱글톤인 경우 xml을 로딩할때 객체 생성여부를 설정.
+  		 true 일경우 xml 로딩 시 객체를 생성하지 않고 객체를 가져올 때 생성.
+  		.getBean시에 객체가 생성된다.
+  > scope :
+  		객체의 범위를 설정.
+  		 singleton - 객체를 하나만 생성해서 사용. (기본값)
+  		 prototype - 객체를 가져올 때 마다 객체를 생성.
+ 
+ 
+ getBean으로 해당 id를 가진 주소값을 가져올 수 있다. 참조변수를 선언해놓으면 자동으로 들어오니 id를 지정할 필요없다.
+
+ex)
+ 1)
+ <bean id='test1' class="kr.co.campus.beans.TestBean"/>
+<!-- xml을 로딩할때 자동으로 객체가 생성 -->
+<!-- id 속성에 이름을 부여하면 getBean 메서드를 통해 객체의 주소값을 받아 사용할 수 있다. -->
+<!-- 생성된 객체는 더이상 생성되지 않는다 . == Singleton -->
+
+ 2)
+ <bean id='test2' class ='kr.co.campus.beans.TestBean' lazy-init="true"/>
+<!-- lazy-init : true == xml을 로딩할때 객체가 생성되지 않는다.(생략하면 false) -->
+<!-- .getBean 메서드를 호출할 때 객체가 생성되면 singleton이기 때문에 객체는 하나만 생성된다. -->
+ //동일하게 주소값만 가져온다.
+ 
+ 3)
+ <bean id='test3' class ='kr.co.campus.beans.TestBean' scope='prototype'/>
+<!-- scope : prototype - xml을 로딩할 때 객체가 생성되지 않는다. -->
+<!-- getBean 메서드를 호출할때 마다 새로운 객체를 생성해서 반환한다. -->
+ // 회원정보 관리시.
+ 
+ <정리> 
+ spring에서는 프로그램에서 사용할 객체를 bean configuration 파일에 정의하여 사용.
+ 
+ 
+ 
+****3 -9강  ----------------------------------------------------
+ Bean 객체의 생명주기
+  - spring의 Bean 다음과 같은 상황일 때 객체가 생성된다.
+   > Singleton인 경우 xml파일을 로딩 할 때 객체가 생성된다.
+   > Singleton이고 Lazy-init 속성이 true일 경우 getBean메서드를 사용할 때 객체가 생성된다.
+   > prototype 일 경우 getBean 메서드를 사용할 때 객체가 생성된다.
+   
+  - spring의 Bean 다음과 같은 상황일 때 객체가 소멸된다.
+   > IoC 컨테이너가 종료 때 객체가 소멸.
+ 
+****3 -10강  ----------------------------------------------------
   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
