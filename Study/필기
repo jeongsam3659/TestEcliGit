@@ -235,21 +235,74 @@ ex)
    > IoC 컨테이너가 종료 때 객체가 소멸.
  
 ****3 -10강  ----------------------------------------------------
-  
+1)  
+객체 생성과 소멸시 호출될 메서드 등록
+ - 객체가 생성되면 가장 먼저 생성자가 호출된다.
+ >init-method 
+ 	생성자 호출 이후 자동으로 호출된다.
+ 	ex) init-method='메서드 이름(bean1_init)'
+ >destory-method
+ 	객체가 소멸될 때 자동으로 호출된다.
+ 
+ 2)	
+ 윗 두개가 설정되지 않을시.	
+ >default-init-method
+  	init-method를 설정하지 않은 경우 자동으로 호출.
+ >default-destory-method 
+ 	destory-method를 설정하지 않은 경우 자동으로 호출.
+ 	
+<bean>으로 따로 설정해주는게 아니라 beans에 이어서 설정해준다
+
+
+> 둘다 설정되어있을경우 1)으로 실행된다. 
+> default 메서드들이 구현되어있지 않은 클래스면 생성자만 생성되고 나머지는 무시되지만
+  직접설정한 메서드가 없을경우 오류가 난다.
  
  
  
+****3 -11강  ---------------------------------------------------- 
+BeanPostProcessor
+ 
+ -Bean객체를 정의할 때 init-method속성을 설정하면 객체가 생성될 때 자동으로 호출될 메서드를 지정할 수 있다.
+ -이 때 BeanPostProcessor 인터페이스를 구현한 클래스를 정의하면 
+   Bean객체를 생성할 때 호출될 init 메서드 호출을 가로채 다른 메서드를 호출 수 있도록 할 수 있다.
+   
+//로그인 확인 / 관리자 확인  (중간에 가로채는 용도) 
+
+ - postProcessBeforeInitailzation
+	>init-method에 지정된 메서드가 호출되기 전에 호출된다.
+ - postProcessAfterInitailzation
+	>init-method에 지정된 메서드가 호출된 후에 호출된다.
+	
+ - init-method가 지정되어 있지 않더라도 자동으로 호출된다.	
+
  
  
+ implements BeanPostProcessor
+  > 인터페이스가 따로 생성하는게 아니라 기존 자바 인터페이스
  
  
+ > id = t1 실행 > init-method 호출도기전에  postProcessBefore 먼저 호출되어 bean 주소값을 받는다.
+ > bean.xml에는 따로 적어두면 된다.
+    <bean class='kr.co.campus.processor.TestBeanPostProcessor'/>
+ > init-method를 적어두지 않아도 실행된다.
  
  
+- bean객체별도 작업을 실행시.
+ beanName을 활용하면된다. 
+  ex)
+  switch(beanName) {
+		case "t1" :
+			System.out.println("id가 t1인 bean객체 생성. ");
+			break;
+		case "t2" :
+			System.out.println("id가 t2인 bean객체 생성. ");
+			break;
+		}
+		return bean;
  
- 
- 
- 
- 
+ <정리>
+ Spring에서는 객체가 생성될때 init-method로 지정된 메서드가 호출되기 전, 후 에 다른 메서드를 호출할 수 있도록 지원하고있다.
  
  
  
