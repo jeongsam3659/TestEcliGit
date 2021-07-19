@@ -1,0 +1,140 @@
+<style>
+a{
+  color:red;
+}
+
+ == 모든 a태그는 컬러 레드
+</style>
+
+a >> Selector
+
+{
+  Delcaration 구역 >> 꾸미는 정도
+  color     :   red
+  property  :   value
+
+}
+
+
+코딩을 어떻게 할까 .. 라는게 중점.
+( 중복의 제거. 등.)
+
+
+밑줄 제거
+text-decoration: none;
+ >> text-decoration 문장을 꾸밈
+
+ text-align
+  >> align - 정렬
+
+
+**클래스값 부여.
+ class=""
+
+* 일반적으로 saw{}로 할시 이름의 태그를 선택하는 선택자가 된다.
+ 클래스값이 saw인 태그를 사용할려면.
+  '.' 앞에 부여 모든 saw태그에 적용
+
+* 클래스값은 여러개값을 띄워쓰기로 구분할 수 있다 .
+ex)
+.saw{
+  color:gray;
+}
+.active{
+  color:red;
+}
+
+<li><a href="2.html" class="saw active">CSS</a></li>
+
+ * 가장 나중에(마지막) 선언된 걸 우선순위로 둔다.
+  >> ID 선택자로 구분.
+  #프로퍼티{}
+  '#'을 붙혀서 구현
+  ID선택자가 class 선택자보다 우선순위가 높다.
+
+  * id값은 한번만 사용해야한다.
+  태그선택자(포괄적)
+  id선택자(구체적)
+
+
+
+
+
+
+  ** 박스모델
+   > 화면 전체를 쓰는 태그 > block
+
+block level elements 와 inline element
+ display라는 속성의 기본값일뿐 언제든 css로 바꿀 수 있다.
+
+
+ * h1 , a{ }으로 공통 사용되는걸 정리할수있다.
+
+ *padding 박스와 내용 사이의 거리.
+  마진과 다름
+
+  박스모델 그림을 참고
+
+
+
+ ** 그리드
+ <div>
+ == 무색 무취와 같은 태그. 아무런 특징없는 상태 .division의 약자.
+ == block elements처럼 화면전체로 씀.
+
+ -- inline을 사용할 경우 <span>
+
+
+ display:grid;
+ grid-template-columns: 150px 1fr;
+== 첫째칸을 150px 사용 / 두번째 칸을 1fr(나머지 공간을 다 쓴다는 개념.)
+== 화면 크기를 자동조정하는 개념 fr
+
+**caniuse.com
+ > html이나 css 태그를 얼마나 많이 사용하는지 보여주는 통계 사이트.
+
+
+  #gird ol{
+    아이디가 gird를 가진 <ol>태그를 대상으로한다.
+  }
+
+
+
+ ** 반응형 디자인
+  화면의 크기에 따라 웹페이지의 각 요소들이 반응해서 동작하게 되는것.
+
+*  미디어쿼리
+
+창의 크기가 800px보다 클경우 표시x
+@media(min-width:800px){
+  div{
+    display:none;
+  }
+
+창의 크기가 800px보다 클경우 표시x
+  @media(min-width:800px){
+    div{
+      display:none;
+    }
+
+
+
+ ** 따로 css파일로 분류하고
+ 링크로 css파일 연결.
+  <link rel="stylesheet" href="style.css">
+
+
+ * 캐싱.
+ f12 - network 에서 확인 가능.
+   '저장하다' 라는뜻. 파일을 웹브라우저에 컴 내부에 저장했다가 요청시 그 저장값을 불러와 속도와 비용을 절감할 수 있다.
+
+
+
+
+
+
+
+
+
+
+-

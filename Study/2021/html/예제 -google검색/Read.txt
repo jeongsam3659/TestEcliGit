@@ -1,0 +1,34 @@
+<input>
+입력하는 칸을 만드는 태그
+
+<form>
+정보를 전송하는 태그
+
+
+h1 span:nth-child(2){
+띄어쓰기:자손을 표현하는 css문법
+(h1 span -> h1태그의 모든 자손 중 span태그만 선택)
+
+nth-child(순서)
+ > 특정 자식 태그를 선택하는 css의 문법
+
+부모-자식 / 자손  (자식의자식 등 모든 하위태그를 포함하는 개념.)
+
+}
+
+
+
+Bootstrap: https://getbootstrap.com
+Materialize: https://materializecss.com
+Semantic-Ui: https://semantic-ui.com
+
+form
+  action은 어디로 향할 주소.
+
+
+GET
+  주소창에 정보를 포함하여 전달하는 정보전송방식
+
+
+POST
+  주소창에 정보를 표시하고 않고 내부적으로 정보를 전달하는 정보 전송방식.

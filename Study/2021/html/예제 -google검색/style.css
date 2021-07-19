@@ -1,0 +1,39 @@
+#title h1{
+
+  text-align: center;
+  margin-top: 230px;
+  font-size: 70px;
+  margin-bottom: 38px;
+}
+
+.main_page{
+  text-align: center;
+  padding-top: 19px;
+}
+
+#input {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 52px;
+  padding-left: 52px;
+}
+
+.center{
+  text-align: center;
+}
+
+#logo_size {
+  font-size:25px;
+}
+
+#logo_suq {
+  margin-bottom:38px;
+}
+
+#page_grid {
+  padding-top:56px;
+}
+
+.serach_bar {
+  width: 500px;
+}
