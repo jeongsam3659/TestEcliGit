@@ -1,0 +1,42 @@
+*
+display : block
+>
+ inline 기본값으로, 요소를  inline요소처럼 표시.
+ 앞뒤로 줄바꿈되지 않습니다.
+
+ block 요소를  블록처럼 표시.
+ 요소 앞 뒤로 줄바꿈 됩니다.
+
+ >> 스샷으로 찍어놓음.
+
+*
+text-decoration
+ >
+ 글씨의 장식(선) 색을 지정.
+  underline
+
+*
+ vertical-align
+ >
+ 수직정렬 위치 선정.
+  top midle bottom super sub , em; %;
+
+*
+ collapse 상쇄
+  테두리border의 기능
+  > 인접 표 셀 ?
+ separte 분리
+  분리된 테두리 표 렌더리 모델.?
+
+*
+CSS "::"는 [중복]을 의미합니다.
+ 이것은 CSS3의 일부이며 의사 클래스와 의사 요소를 구별하려는 시도입니다.
+ 사용할 때, 의사 클래스 처럼 :hover, :first-child등, 단일 콜론을 사용합니다. 당신이 사용하려는 경우 의사 요소를 같은 ::before, ::after, ::first-letter등, 더블 콜론을 사용합니다.
+https://developer.mozilla.org/ko/docs/Web/CSS/::after
+
+ atom
+ >
+ 선정리
+https://dasima.xyz/atom-beautify/
+ 인라인 가이드라인
+https://dasima.xyz/atom-indent-guideline/

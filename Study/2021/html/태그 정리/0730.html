@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <style type="text/css">
+    div {
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+    }
+
+    #a {
+      background-color: yellow;
+    }
+
+    #b {
+      background-color: green;
+    }
+
+    /* ------------------------------- */
+    .under {
+      text-decoration: underline red;
+    }
+
+    .over {
+      text-decoration: wavy overline lime;
+    }
+
+    .line {
+      text-decoration: line-through;
+    }
+
+    .plain {
+      text-decoration: none;
+    }
+
+    .underover {
+      text-decoration: dashed underline overline;
+    }
+
+    .thick {
+      text-decoration: solid underline purple 4px;
+    }
+
+    .blink {
+      text-decoration: blink red;
+    }
+
+    /* ------------------------------- */
+
+    .collapse {
+      border-collapse: collapse;
+    }
+
+    .separate {
+      border-collapse: separate;
+    }
+
+    table {
+      display: inline-table;
+      margin: 1em;
+      border: dashed 6px;
+      border-width: 6px;
+    }
+
+    table th,
+    table td {
+      border: solid 3px;
+    }
+
+    .fx {
+      border-color: orange blue;
+    }
+
+    .gk {
+      border-color: black red;
+    }
+
+    .ie {
+      border-color: blue gold;
+    }
+
+    .tr {
+      border-color: aqua;
+    }
+
+    .sa {
+      border-color: silver blue;
+    }
+
+    .wk {
+      border-color: gold blue;
+    }
+
+    .ch {
+      border-color: red yellow green blue;
+    }
+
+    .bk {
+      border-color: navy blue teal aqua;
+    }
+
+    .op {
+      border-color: red;
+    }
+  </style>
+  <title></title>
+</head>
+
+<body>
+
+  <div id="a">
+    inline
+  </div>
+
+  <div id="b">
+    block
+  </div>
+
+  디스플레이 블록과 인라인과 none 구별
+  <hr>
+  <p class="under">밑줄을 가진 글씨입니다.</p>
+  <p class="over">윗줄을 가진 글씨입니다.</p>
+  <p class="line">취소선을 가진 글씨입니다.</p>
+  <p>여기 링크는 기본값과 다르게 <a class="plain" href="#">밑줄이 없습니다</a>.
+    사용자는 보통 하이퍼링크를 구분할 때 밑줄 여부로 판단하므로
+    지우기 전에 조심해야 합니다.</p>
+  <p class="underover">밑줄과 윗줄 모두 가진 글씨입니다.</p>
+  <p class="thick">이 글씨는 아주 두꺼운 보라색 밑줄을 표시합니다. (브라우저가 지원하는 경우)</p>
+  <p class="blink">이 글씨는 브라우저에 따라서 깜빡일 수 있어요.</p>
+  <hr>
+
+  <table class="separate">
+    <caption><code>border-collapse: separate</code></caption>
+    <tbody>
+      <tr>
+        <th>Browser</th>
+        <th>Layout Engine</th>
+      </tr>
+      <tr>
+        <td class="fx">Firefox</td>
+        <td class="gk">Gecko</td>
+      </tr>
+      <tr>
+        <td class="ie">Internet Explorer</td>
+        <td class="tr">Trident</td>
+      </tr>
+      <tr>
+        <td class="sa">Safari</td>
+        <td class="wk">Webkit</td>
+      </tr>
+      <tr>
+        <td class="ch">Chrome</td>
+        <td class="bk">Blink</td>
+      </tr>
+      <tr>
+        <td class="op">Opera</td>
+        <td class="bk">Blink</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="collapse">
+    <caption><code>border-collapse: collapse</code></caption>
+    <tbody>
+      <tr>
+        <th>Browser</th>
+        <th>Layout Engine</th>
+      </tr>
+      <tr>
+        <td class="fx">Firefox</td>
+        <td class="gk">Gecko</td>
+      </tr>
+      <tr>
+        <td class="ie">Internet Explorer</td>
+        <td class="tr">Trident</td>
+      </tr>
+      <tr>
+        <td class="sa">Safari</td>
+        <td class="wk">Webkit</td>
+      </tr>
+      <tr>
+        <td class="ch">Chrome</td>
+        <td class="bk">Blink</td>
+      </tr>
+      <tr>
+        <td class="op">Opera</td>
+        <td class="bk">Blink</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+
+</body>
+
+</html>
